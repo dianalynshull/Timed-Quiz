@@ -1,7 +1,5 @@
 /* Universal styles */
 body {
-    margin: 0px;
-    padding: 0px;
     background-color: #E4F4EC;
 }
 
@@ -10,22 +8,23 @@ body {
     background-color: #5CAB85;
 }
 
-.navbar a {
+.header-text {
     color: #E4F4EC;
     text-decoration: none;
     padding: 20px;
     font-size: 1.3rem;
     letter-spacing: 2px;
+    margin: 0;
 }
 
-.navbar a:hover {
+.header-text:hover {
     color: white;
     font-weight: bold;
     transition: 0.1s;
 }
 
 /* card styles */
-.quiz {
+#quiz {
     margin: 0;
     padding-top: 30px;
     display: grid;

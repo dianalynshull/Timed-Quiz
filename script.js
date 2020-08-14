@@ -13,3 +13,13 @@
     // I am shown a page with all of the high scores of the users that have taken the quiz
     // There is an option to clear the highscore bored
     // There is an option to play again
+
+// variables
+let timer = document.getElementById("timer");
+console.log(timer);
+let startQuiz = document.getElementById("start");
+console.log(startQuiz);
+let startCard = document.getElementById("startCard");
+console.log(startCard);
+let quiz = document.getElementById("quiz");
+console.log(quiz);
