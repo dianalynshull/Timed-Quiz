@@ -1,6 +1,36 @@
-/* header styles */
+/* Universal styles */
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: #E4F4EC;
+}
+
+/* header/navbar styles */
+.navbar {
+    background-color: #5CAB85;
+}
+
+.navbar a {
+    color: #E4F4EC;
+    text-decoration: none;
+    padding: 20px;
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+}
+
+.navbar a:hover {
+    color: white;
+    font-weight: bold;
+    transition: 0.1s;
+}
 
 /* card styles */
+.quiz {
+    margin: 0;
+    padding-top: 30px;
+    display: grid;
+    justify-content: center;
+}
 
 /* hidden cards */
 

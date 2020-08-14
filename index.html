@@ -5,37 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Javascript Quiz</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     <!-- header with highscores to the left and time remaining on the right -->
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar">
             <a class="highscores" href="#">View Highscores</a>
-            <p class="timer">Placeholder text</p>
+            <a class="Timer" href="#">Timer</a>
         </nav>
     </header>
     <!-- Quiz data inside here -->
-    <section class="w-50">
+    <section class="quiz">
         <!-- Quiz Starting Card -->
-        <div class="card" value="0">
+        <div class="card">
             <h5 class="card-header">Coding Quiz Challenge</h5>
             <div class="card-body">
                 <p class="card-text">Try to answer the following code-related questions within the time limit. keep in mind that incorrect answers will penalize your score time by ten seconds!</p>
                 <a href="#" class="btn btn-primary">Start Quiz</a>
             </div>
-        </div>
-        <!-- 10 cards to randomly pick between for the user to answer 5 of -->
-        <div class="card" value="1">
-            <div class="card-header question">
-                Test Question
-            </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item" value="1">1</li>
-                <li class="list-group-item" value="2">2</li>
-                <li class="list-group-item" value="3">3</li>
-                <li class="list-group-item" value="4">4</li>
-            </ul>
-        </div>        
+        </div>      
     </section>
 
 
