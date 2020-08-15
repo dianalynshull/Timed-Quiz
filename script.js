@@ -7,29 +7,8 @@ const startCard = document.getElementById("startCard");
 console.log(startCard);
 const quizCard = document.getElementById("quizCard");
 console.log(quizCard);
-let li1 = document.createElement("li");
-let li2 = document.createElement("li");
-let li3 = document.createElement("li");
-let li4 = document.createElement("li");
 
-// Store our li elements in a variable
-let listItems = document.getElementsByTagName("li");
-
-li1.textContent = "Chicken Fingers";
-li2.textContent = "Pizza";
-li3.textContent = "Burgers";
-li4.textContent = "Sushi";
-
-choices.appendChild(li1);
-choices.appendChild(li2);
-choices.appendChild(li3);
-choices.appendChild(li4);
-
-listItems[0].setAttribute("class", "list-group-item");
-listItems[1].setAttribute("class", "list-group-item");
-listItems[2].setAttribute("class", "list-group-item");
-listItems[3].setAttribute("class", "list-group-item");
-
+let questionTitle = document.getElementById("question")
 let questions = [
     {
        question: "What is the HTML tag under which one can write the JavaScript code?",
@@ -60,10 +39,35 @@ let questions = [
        choices: ["True", "False"],
        answer: 0,
         
-    },
-]
+    }
+];
+// need to create a loop that will create li items based off of how many questions are in the array for choices
+for (let i = 0; i < questions.length; i++) {
+    questionTitle.textContent = (questions[0].question)
+    let createChoices = document.createElement("li");
+    createChoices.textContent = (questions[0].choices[i]);
+    choices.appendChild(createChoices);
+    createChoices.setAttribute("class", "list-group-item");
+};
 
-console.log(questions);
+// // Store our li elements in a variable
+
+// let listItems = document.getElementsByTagName("li");
+
+// li1.textContent = "Chicken Fingers";
+// li2.textContent = "Pizza";
+// li3.textContent = "Burgers";
+// li4.textContent = "Sushi";
+
+// choices.appendChild(li1);
+// choices.appendChild(li2);
+// choices.appendChild(li3);
+// choices.appendChild(li4);
+
+// listItems[0].setAttribute("class", "list-group-item");
+// listItems[1].setAttribute("class", "list-group-item");
+// listItems[2].setAttribute("class", "list-group-item");
+// listItems[3].setAttribute("class", "list-group-item");
 
 // ***** Event Listeners ****
 
