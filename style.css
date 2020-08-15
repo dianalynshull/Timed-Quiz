@@ -31,5 +31,10 @@ body {
     justify-content: center;
 }
 
+li:hover {
+    font-weight: bold;
+    transition: 0.2s;
+}
+
 /* hidden cards */
 
