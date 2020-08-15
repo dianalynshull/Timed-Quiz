@@ -7,10 +7,28 @@ const startCard = document.getElementById("startCard");
 console.log(startCard);
 const quizCard = document.getElementById("quizCard");
 console.log(quizCard);
-// Create a variable that will create li items to then insert question data into
+let li1 = document.createElement("li");
+let li2 = document.createElement("li");
+let li3 = document.createElement("li");
+let li4 = document.createElement("li");
 
+// Store our li elements in a variable
+let listItems = document.getElementsByTagName("li");
 
+li1.textContent = "Chicken Fingers";
+li2.textContent = "Pizza";
+li3.textContent = "Burgers";
+li4.textContent = "Sushi";
 
+choices.appendChild(li1);
+choices.appendChild(li2);
+choices.appendChild(li3);
+choices.appendChild(li4);
+
+listItems[0].setAttribute("class", "list-group-item");
+listItems[1].setAttribute("class", "list-group-item");
+listItems[2].setAttribute("class", "list-group-item");
+listItems[3].setAttribute("class", "list-group-item");
 
 let questions = [
     {
@@ -47,6 +65,10 @@ let questions = [
 
 console.log(questions);
 
+// ***** Event Listeners ****
+
+
+// ***** Functions *****
 // When I click on "Start quiz" I will see the first question and the timer will begin
 
 startQuiz.addEventListener("click", function() {
