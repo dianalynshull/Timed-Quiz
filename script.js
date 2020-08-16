@@ -113,6 +113,7 @@ function youWon() {
     questionTitle.textContent = "You have won the game! Your score is " + secondsLeft + "!";
     let initials = document.createElement("div");
     initials.classList.add("form-group");
+    initials.style.padding = "0px 15px";
     quizCard.appendChild(initials);
     let labelFor = document.createElement("label");
     labelFor.setAttribute("for", "Initials");
@@ -122,6 +123,13 @@ function youWon() {
     inputType.setAttribute("class", "form-control");
     inputType.setAttribute("placeholder", "Enter Your Initials")
     initials.appendChild(inputType);
+    let submit = document.createElement("a");
+    submit.setAttribute("href", "index.html")
+    submit.classList.add("btn", "btn-primary");
+    submit.textContent = "Submit Score";
+    submit.style.margin = "20px 40px";
+    quizCard.appendChild(submit);
+
     return;
 };
 
