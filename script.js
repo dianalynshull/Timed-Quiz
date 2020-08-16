@@ -122,16 +122,24 @@ function youWon() {
     inputType.setAttribute("type", "text");
     inputType.setAttribute("class", "form-control");
     inputType.setAttribute("placeholder", "Enter Your Initials")
+    inputType.textContent = "test";
     initials.appendChild(inputType);
     let submit = document.createElement("a");
-    submit.setAttribute("href", "index.html")
     submit.classList.add("btn", "btn-primary");
+    submit.setAttribute("id", "submit");
     submit.textContent = "Submit Score";
     submit.style.margin = "20px 40px";
     quizCard.appendChild(submit);
 
     return;
 };
+
+let userHighScore = document.getElementsByClassName("form-group").textContent;
+console.log(userHighScore);
+
+submit.addEventListener('click', function(e) {
+    localStorage.setItem("highScore", userHighScore + " - " + secondsLeft);
+  });
 
 function endGame() {
     quizCard.removeChild(quizChoice);
