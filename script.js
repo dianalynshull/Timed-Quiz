@@ -1,18 +1,15 @@
-// variables
-
-console.dir(document.body);
+// const variables
 const quiz = document.getElementById("quiz");
 const startBtn = document.getElementById("start");
 const startCard = document.getElementById("startCard");
 const quizCard = document.getElementById("quizCard");
 const questionTitle = document.getElementById("questionTitle");
-const quizChoices = document.getElementById("quizChoices");
-
-// need a variable to define what the current question is
-
+const timeEl = document.getElementById("timer");
+// let variables
 let displayedQuestion = 0;
 let choiceValue = 0;
-
+let secondsLeft = 60;
+let timerInterval;
 let questionItem = [
     {
        question: "What is the HTML tag under which one can write the JavaScript code?",
@@ -45,26 +42,32 @@ let questionItem = [
         
     }
 ];
-
-// ***** Event Listeners ****
 // event listener for start button
 startBtn.addEventListener("click", startQuiz);
-// quizChoices.addEventListener("click", createQuestions);
-
-//event listener for quiz questions
-
-
-// ***** Functions *****
-// When I click on "Start quiz" I will see the first question and the timer will begin
+// Functions
 function startQuiz() {
     console.log("You clicked start");
     quiz.removeChild(startCard);
     createQuestion();
+    setTime();
 };
+function setTime() {
+    console.log("why");
+    timerInterval = setInterval(function() {
+    secondsLeft--;
+    timeEl.textContent = secondsLeft + " seconds left";
 
-console.log(questionItem[displayedQuestion].question);
-
+    if(secondsLeft <= 0) {
+      clearInterval(timerInterval);
+      endGame();
+    }
+  }, 1000);
+}
 function createQuestion() {
+    if (displayedQuestion >= 5) {
+        youWon()
+    };
+    choiceValue = 0;
     // updates h5 tag with the title of the question and updates the class
     questionTitle.textContent = questionItem[displayedQuestion].question;
     quizCard.prepend(questionTitle);
@@ -74,7 +77,7 @@ function createQuestion() {
     choiceWrapper.setAttribute("value", [choiceValue]);
     quizCard.appendChild(choiceWrapper);
     choiceWrapper.classList.add("list-group", "list-group-flush");
-    choiceWrapper.setAttribute("id", "quizChoices")
+    choiceWrapper.setAttribute("id", "quizChoice")
 
     for (let j = 0; j < questionItem[displayedQuestion].choice.length; j++) {
         let questionChoice = document.createElement("li");
@@ -84,8 +87,54 @@ function createQuestion() {
         questionChoice.classList.add("list-group-item");
         choiceValue++;
     };
-    displayedQuestion++;
+    const quizChoice = document.getElementById("quizChoice");
+
+    quizChoice.addEventListener("click", function(e) {
+        console.log("this is the question Item round 1 ", questionItem[displayedQuestion].answer);
+        if (questionItem[displayedQuestion].answer === event.target.value) {
+            event.target.style.backgroundColor = "#7FC1A1";    
+            displayedQuestion++;
+            quizCard.removeChild(quizChoice);
+            createQuestion();
+        }
+
+        else {
+            event.target.style.backgroundColor = "DoomGuyRed";    
+            secondsLeft = secondsLeft - 10;
+            displayedQuestion++;
+            quizCard.removeChild(quizChoice);
+            createQuestion();
+        }
+    });
 };
+
+function youWon() {
+    clearInterval(timerInterval);
+    questionTitle.textContent = "You have won the game! Your score is " + secondsLeft + "!";
+    let initials = document.createElement("div");
+    initials.classList.add("form-group");
+    quizCard.appendChild(initials);
+    let labelFor = document.createElement("label");
+    labelFor.setAttribute("for", "Initials");
+    initials.appendChild(labelFor);
+    let inputType = document.createElement("input");
+    inputType.setAttribute("type", "text");
+    inputType.setAttribute("class", "form-control");
+    inputType.setAttribute("placeholder", "Enter Your Initials")
+    initials.appendChild(inputType);
+    return;
+};
+
+function endGame() {
+    quizCard.removeChild(quizChoice);
+    questionTitle.textContent = "You lost! Refresh to try again!";
+    return;
+}
+
+
+
+
+
 
     // create a title for the question
     // display the choices below it
